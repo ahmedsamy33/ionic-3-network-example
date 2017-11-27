@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NetworkService} from "../../services/NetworkService";
 
 @Component({
   selector: 'page-home',
@@ -7,8 +7,15 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private networkService: NetworkService) {
 
   }
 
+  subscribe() {
+    this.networkService.subscribe();
+  }
+
+  unsubscribe() {
+    this.networkService.unsubscribe();
+  }
 }
